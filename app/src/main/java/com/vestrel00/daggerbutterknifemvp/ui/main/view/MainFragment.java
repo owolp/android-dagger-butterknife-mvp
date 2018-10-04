@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,5 +71,15 @@ public final class MainFragment extends BaseFragment {
     @OnClick(R.id.example_3)
     void onExample3Clicked() {
         listener.onExample3Clicked();
+    }
+
+    @OnClick(R.id.example_4)
+    void onExample4Clicked() {
+        listener.onExample4Clicked();
+    }
+
+    @OnClick(R.id.example_5)
+    void onExample5Clicked() {
+        listener.onExample5Clicked();
     }
 }

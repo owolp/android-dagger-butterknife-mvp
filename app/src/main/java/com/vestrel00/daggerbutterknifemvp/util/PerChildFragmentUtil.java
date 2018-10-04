@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,13 +27,12 @@ import javax.inject.Named;
 /**
  * A class that does something.
  * <p>
- * This class has the {@link PerChildFragment} scope. This means that the child {@link Fragment}
- * (a fragment inside a fragment that is added using {@link Fragment#getChildFragmentManager()})
- * and all of its dependencies will share the same instance of this class.
- * However, different child fragments instances will have their own instances of this class.
+ * This class has the {@link PerChildFragment} scope. This means that the child Fragment (a fragment
+ * inside a fragment that is added using Fragment.getChildFragmentManager()) and all of its
+ * dependencies will share the same instance of this class. However, different child fragments
+ * instances will have their own instances of this class.
  * <p>
- * This is not available at the parent {@link Fragment}, {@link android.app.Activity}
- * and {@link android.app.Application}.
+ * This is not available at the parent Fragment, Activity, and Application.
  */
 @PerChildFragment
 public final class PerChildFragmentUtil {

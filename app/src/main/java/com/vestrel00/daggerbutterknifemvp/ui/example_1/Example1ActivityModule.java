@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ public abstract class Example1ActivityModule {
 
     /**
      * As per the contract specified in {@link BaseActivityModule}; "This must be included in all
-     * activity modules, which must rovide a concrete implementation of {@link Activity}."
+     * activity modules, which must provide a concrete implementation of {@link Activity}."
      * <p>
      * This provides the activity required to inject the
      * {@link BaseActivityModule#ACTIVITY_FRAGMENT_MANAGER} into the

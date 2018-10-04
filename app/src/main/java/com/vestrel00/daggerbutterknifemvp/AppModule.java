@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
 
 package com.vestrel00.daggerbutterknifemvp;
 
+import android.app.Application;
+
 import com.vestrel00.daggerbutterknifemvp.inject.PerActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1ActivityModule;
@@ -26,6 +28,9 @@ import com.vestrel00.daggerbutterknifemvp.ui.example_3.Example3ActivityModule;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivityModule;
 
+import javax.inject.Singleton;
+
+import dagger.Binds;
 import dagger.Module;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.ContributesAndroidInjector;
@@ -35,6 +40,18 @@ import dagger.android.ContributesAndroidInjector;
  */
 @Module(includes = AndroidInjectionModule.class)
 abstract class AppModule {
+
+    @Binds
+    @Singleton
+    /*
+     * Singleton annotation isn't necessary since Application instance is unique but is here for
+     * convention. In general, providing Activity, Fragment, BroadcastReceiver, etc does not require
+     * them to be scoped since they are the components being injected and their instance is unique.
+     *
+     * However, having a scope annotation makes the module easier to read. We wouldn't have to look
+     * at what is being provided in order to understand its scope.
+     */
+    abstract Application application(App app);
 
     /**
      * Provides the injector for the {@link MainActivity}, which has access to the dependencies

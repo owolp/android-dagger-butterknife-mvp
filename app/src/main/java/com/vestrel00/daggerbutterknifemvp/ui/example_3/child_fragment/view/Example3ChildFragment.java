@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,6 @@ public final class Example3ChildFragment extends BaseViewFragment<Example3ChildP
 
     @Override
     public void showSomething(String something) {
-        childFragmentManager.hashCode();
         someText.setText(something);
     }
 

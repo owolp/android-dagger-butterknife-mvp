@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,4 +26,8 @@ public interface MainFragmentListener {
     void onExample2Clicked();
 
     void onExample3Clicked();
+
+    void onExample4Clicked();
+
+    void onExample5Clicked();
 }

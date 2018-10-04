@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,10 @@ import android.app.Activity;
 import com.vestrel00.daggerbutterknifemvp.inject.PerActivity;
 import com.vestrel00.daggerbutterknifemvp.inject.PerFragment;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivityModule;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1Fragment;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1FragmentModule;
+import com.vestrel00.daggerbutterknifemvp.ui.example_3.parent_fragment.view.Example3ParentFragment;
+import com.vestrel00.daggerbutterknifemvp.ui.example_3.parent_fragment.view.Example3ParentFragmentModule;
 import com.vestrel00.daggerbutterknifemvp.ui.main.view.MainFragment;
 import com.vestrel00.daggerbutterknifemvp.ui.main.view.MainFragmentListener;
 import com.vestrel00.daggerbutterknifemvp.ui.main.view.MainFragmentModule;
@@ -44,8 +48,30 @@ public abstract class MainActivityModule {
     abstract MainFragment mainFragmentInjector();
 
     /**
+     * Provides the injector for the {@link Example1Fragment}, which has access to the dependencies
+     * provided by this activity and application instance (singleton scoped objects).
+     *
+     * This is used for example 4, which displays {@link Example1Fragment} as a
+     * {@link android.app.DialogFragment}.
+     */
+    @PerFragment
+    @ContributesAndroidInjector(modules = Example1FragmentModule.class)
+    abstract Example1Fragment example1FragmentInjector();
+
+    /**
+     * Provides the injector for the {@link Example3ParentFragment}, which has access to the
+     * dependencies provided by this activity and application instance (singleton scoped objects).
+     *
+     * This is used for example 5, which displays {@link Example3ParentFragment} as a
+     * {@link android.app.DialogFragment}.
+     */
+    @PerFragment
+    @ContributesAndroidInjector(modules = Example3ParentFragmentModule.class)
+    abstract Example3ParentFragment example3ParentFragmentInjector();
+
+    /**
      * As per the contract specified in {@link BaseActivityModule}; "This must be included in all
-     * activity modules, which must rovide a concrete implementation of {@link Activity}."
+     * activity modules, which must provide a concrete implementation of {@link Activity}."
      * <p>
      * This provides the activity required to inject the
      * {@link BaseActivityModule#ACTIVITY_FRAGMENT_MANAGER} into the

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Vandolf Estrellado
+ * Copyright 2018 Vandolf Estrellado
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 package com.vestrel00.daggerbutterknifemvp.ui.common;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -46,9 +47,15 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
     @Inject
     protected Navigator navigator;
 
+    /**
+     * A reference to the FragmentManager is injected and used instead of the getter method. This
+     * enables ease of mocking and verification in tests (in case Activity needs testing).
+     *
+     * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
+     */
     @Inject
     @Named(BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER)
-    protected FragmentManager fragmentManager;
+    FragmentManager fragmentManager;
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentInjector;
@@ -68,5 +75,9 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
         fragmentManager.beginTransaction()
                 .add(containerViewId, fragment)
                 .commit();
+    }
+
+    protected final void showDialogFragment(DialogFragment dialogFragment, String tag) {
+        dialogFragment.show(fragmentManager, tag);
     }
 }
